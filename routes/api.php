@@ -22,6 +22,7 @@ Route::middleware('throttle:auth')->group(function () {
 
 /* Protected routes */
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [UserController::class, 'logout']);
     Route::get('/lists/me', [ShoppingListController::class, 'show']);
     Route::post('/items', [ItemController::class, 'store']);
     Route::get('/items/{item}', [ItemController::class, 'show']);
